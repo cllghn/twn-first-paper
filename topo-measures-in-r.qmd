@@ -1,0 +1,39 @@
+# Validating Topographical Measures in R
+
+```{r}
+library(igraph)
+```
+
+Load the graph data as a directed netowork.
+
+```{r}
+el <- read.csv("data/edges_20260413.csv", header = TRUE, colClasses = "character")
+nl <- read.csv("data/nodes_20260413.csv", header = TRUE, colClasses = "character")
+dg <- graph_from_data_frame(el, directed = TRUE, vertices = nl)
+sdg <- simplify(dg, remove.multiple = TRUE, remove.loops = FALSE)
+```
+
+Take a look at the graph.
+
+```{r}
+`_layout` <- layout_with_kk(sdg)
+plot(sdg, vertex.label = NA, vertex.size = 5, layout = `_layout`)
+```
+
+## Topographical Measures
+
+```{r}
+vcount(dg)
+ecount(dg)
+ecount(sdg)
+degree(dg, mode = "total") |> mean()
+# Degree centralization
+centr_degree(sdg, mode = "out")$centralization
+edge_density(sdg)
+components(sdg, mode = "weak")$no
+# Underected diameter
+diameter(sdg, unconnected = TRUE, directed = TRUE)
+transitivity(sdg, type = "average", isolates = "zero")
+```
+
+

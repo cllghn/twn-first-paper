@@ -1,0 +1,10 @@
+,metric,value,notes
+0,Nodes,6675.0,Count of unique nodes in the graph.
+1,Edges,9218.0,"Count of links in the graph; that is, one with multiple parallel edges, but with self-loops if they exist."
+2,Average degree,2.7619,Total average degree (in + out for directed).
+3,Out-degree centralization,0.1318,"The graph level centrality index based on out-degree distribution. Out-degree centralization measures how unevenly distributed the outgoing activity is across a network; plainly, it looks at whether a network's outbound flows are dominated by a few elite 'broadcasters' or if every node shares the outbound workload equally."
+4,Density,0.0002,The ratio of actual edges to possible edges in a network.
+5,Weak components,60.0,Weak components.
+6,Diameter,11.0,"We calculate the maximum number of steps required to travel between the two furthest connected points in the network, following the one-way direction of the links (directed) and ignoring disconnected groups."
+7,Average clustering coefficient,0.0554,"This metric measures the average 'friend-of-a-friend' connectivity across the network by calculating how tightly clustered each individual node's neighbors are and averaging scores together. It treats completely isolated nodes as having zero local connectivity rather than leaving them out of the calculation, ensuring lonely points are factored into the final network average."
+8,Average path length,2.1218,The average distance between all reachable points in the network.
